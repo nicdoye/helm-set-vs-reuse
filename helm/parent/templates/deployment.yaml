@@ -15,5 +15,3 @@ spec:
         - name: parent
           image: "httpd:alpine"
           imagePullPolicy: Always
-
-
