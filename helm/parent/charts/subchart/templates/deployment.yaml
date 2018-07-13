@@ -1,4 +1,5 @@
-apiVersion: extensions/v1beta1
+---
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: subchart
@@ -6,12 +7,15 @@ metadata:
     app: subchart
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: subchart
   template:
     metadata:
       labels:
         app: subchart
     spec:
       containers:
-        - name: subchart
-          image: "nginx:alpine"
-          imagePullPolicy: Always
+      - name: subchart
+        image: "nginx:alpine"
+        imagePullPolicy: Always
